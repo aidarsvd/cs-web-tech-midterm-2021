@@ -1,0 +1,16 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.box-inner{
+  color: blue;
+}
+
+.popular{
+  display: flex;
+}
+
+.up_coming{
+  display: flex;
+}
