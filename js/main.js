@@ -4,6 +4,7 @@ const upcoming_route = 'movie/upcoming'
 const top_rated_route = 'movie/top_rated'
 const api_key = '9075303a6c0299a1dc0e2d6eaa1cffed'
 let movieBox = $('.box');
+let mainTitle = $('.main_title')
 
 function renderPopular() {
   fetch(BASE_URL + popular_route + '?&api_key=' + api_key)
@@ -42,14 +43,17 @@ function renderTopRated() {
 
 
 $('#popular').click(() => {
+  mainTitle.html('Popular movies:')
   renderPopular()
 });
 
 $('#up_coming').click(() => {
+  mainTitle.html('Upcoming movies:')
   renderUpComing()
 });
 
 $('#top_rated').click(() => {
+  mainTitle.html('Top rated movies:')
   renderTopRated()
 });
 
@@ -69,6 +73,7 @@ function movieCard(item){
     </div>
   </div>
   <div class="movie_title">${item.title}</div>
+  <div class="release_date">Release date: ${item.release_date}</div>
   `
 }
 
