@@ -1,15 +1,17 @@
 const BASE_URL = 'https://api.themoviedb.org/3/';
 const popular_route = 'movie/popular'
 const upcoming_route = 'movie/upcoming'
+const top_rated_route = 'movie/top_rated'
 const api_key = '9075303a6c0299a1dc0e2d6eaa1cffed'
-let popularBox = $('.box');
+let movieBox = $('.box');
 
 function renderPopular() {
   fetch(BASE_URL + popular_route + '?&api_key=' + api_key)
     .then((res) => res.json())
     .then((data) => {
+      movieBox.html('')
       data.results.forEach((item) => {
-        popularBox.append(movieCard(item));
+        movieBox.append(movieCard(item));
       });
     });
 }
@@ -18,13 +20,38 @@ function renderUpComing(){
   fetch(BASE_URL + upcoming_route + '?&api_key=' + api_key)
   .then((res) => res.json())
   .then((data) => {
+    movieBox.html('')
     console.log(data)
     data.results.forEach((item) => {
-      console.log(item.id)
-      upComing.append(movieCard(item));
+      movieBox.append(movieCard(item));
     });
   });
 }
+
+function renderTopRated() {
+  fetch(BASE_URL + top_rated_route + '?&api_key=' + api_key)
+  .then((res) => res.json())
+  .then((data) => {
+    movieBox.html('')
+    console.log(data)
+    data.results.forEach((item) => {
+      movieBox.append(movieCard(item));
+    });
+  });
+}
+
+
+$('#popular').click(() => {
+  renderPopular()
+});
+
+$('#up_coming').click(() => {
+  renderUpComing()
+});
+
+$('#top_rated').click(() => {
+  renderTopRated()
+});
 
 function render(){
   renderPopular()
