@@ -25,5 +25,5 @@ SOFTWARE.
 
 ## Movies Info Site
 Site that displays 3 categories of movie: "Popular now", "Upcoming", "Top rated"
-[Site URL](https://aidarsvd.github.io/cs-web-tech-midterm/)
+[Site URL](https://aidarsvd.github.io/cs-web-tech-midterm-2021/)
 
